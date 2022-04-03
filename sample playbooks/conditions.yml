@@ -1,0 +1,14 @@
+--- # Target and Task Program
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install httpd server on Debian
+      command: apt-get -y install apache2
+      when: ansible_os_family=='Debian'
+    - name: Install httpd server on RedHAt
+      command: yum install httpd -y
+      when: ansible_os_family=='RedHat'
+
+

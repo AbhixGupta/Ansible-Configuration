@@ -1,0 +1,11 @@
+--- # Target and Task Program
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+    pkgname: httpd
+  tasks:
+    - name: Install httpd server on Linux
+      action: yum name='{{pkgname}}' state=installed
+
